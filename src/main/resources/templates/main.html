@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse</title>
+    <link rel="stylesheet" href="/main.css">
+    <link rel="stylesheet" href="/commons.css">
+</head>
+<body>
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+<div id="content">
+    <th:block th:each="product : ${products}" >
+        <div class="product-box">
+            <div th:text="${product.name}" class="name-box"></div>
+            <div class="product-data-box">
+                <div th:text="'Kod produktu: ' + ${product.code}"></div>
+                <div th:text="'Ilość: ' + ${product.quantity}"></div>
+            </div>
+            <a th:if="${role == 'ADMIN'}" th:href="@{/delete/{id}(id=${product.id})}" class="delete-button"></a>
+            <a th:if="${role == 'ADMIN'}" th:href="@{/edit/{id}(id=${product.id})}" class="edit-button"></a>
+            <a th:if="${role == 'USER' and product.quantity>0}" th:href="@{/subtractProduct/{id}(id=${product.id})}"
+               class="subtract-button"></a>
+            <a th:if="${role == 'USER'}" th:href="@{/addProduct/{id}(id=${product.id})}" class="add-button"></a>
+        </div>
+    </th:block>
+</div>
+
+</body>
+</html>
