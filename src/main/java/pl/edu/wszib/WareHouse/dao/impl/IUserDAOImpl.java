@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+
 @Repository
 public class IUserDAOImpl implements IUserDAO {
 
@@ -29,6 +30,7 @@ public class IUserDAOImpl implements IUserDAO {
                         resultSet.getString("login"),
                         resultSet.getString("pass"),
                         User.Role.valueOf(resultSet.getString("role")));
+
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -44,6 +46,7 @@ public class IUserDAOImpl implements IUserDAO {
             preparedStatement.setString(1, user.getLogin());
             preparedStatement.setString(2, user.getPass());
             preparedStatement.setString(3, user.getRole().toString());
+
             preparedStatement.executeUpdate();
             return true;
         } catch (SQLException throwables) {

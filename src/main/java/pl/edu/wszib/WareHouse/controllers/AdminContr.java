@@ -23,10 +23,13 @@ public class AdminContr {
 
     @Autowired
     IUserService userService;
+
     @Resource
     SessionObject sessionObject;
+
     @Resource
     IProductService productService;
+
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String registerForm(Model model) {
@@ -53,6 +56,7 @@ public class AdminContr {
                 || !registrationModel.getPass().equals(registrationModel.getPass2())) {
             this.sessionObject.setInfo("Validation error !!");
             return "redirect:/register";
+
         }
 
         if (this.userService.register(registrationModel)) {
@@ -81,6 +85,8 @@ public class AdminContr {
             return "redirect:/login";
         }
         this.productService.updateProduct(product);
+
+
         return "redirect:/main";
     }
 
@@ -93,7 +99,9 @@ public class AdminContr {
         model.addAttribute("isLogged", sessionObject.isLogged());
         model.addAttribute("role", this.sessionObject.isLogged() ? this.sessionObject.getLoggedUser().getRole().toString() : null);
         model.addAttribute("info", this.sessionObject.getInfo());
+
         return "addNewProduct";
+
     }
 
     @RequestMapping(value = "/addNewProduct", method = RequestMethod.POST)
@@ -120,5 +128,9 @@ public class AdminContr {
         }
         this.productService.deleteProduct(id);
         return "redirect:/main";
+
+
     }
+
+
 }
