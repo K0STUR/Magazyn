@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse</title>
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+<div id="content">
+    <form method="post" id="edit-form">
+        <p th:if="${info}" th:text="${info}" id="error"></p>
+        <div class="text">
+            Ile chcesz odjąć produktów? <br>
+        </div>
+        <input type="text" th:field="*{changeQuantityModel.quantity}">
+        <input type="submit" value="Zatwierdź">
+    </form>
+</div>
+
+
+</body>
+</html>

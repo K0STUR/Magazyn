@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Warehouse</title>
+    <link rel="stylesheet" href="/commons.css">
+    <link rel="stylesheet" href="/edit.css">
+    <link rel="stylesheet" href="addNewProduct.css">
+</head>
+<body>
+<div th:replace="fragments.html :: logo"></div>
+<div th:replace="fragments.html :: menu"></div>
+<div id="content">
+    <form method="post" id="edit-form">
+        <p th:if="${info}" th:text="${info}" id="error"></p>
+        <input type="text" placeholder="Product name" th:field="*{product.name}">
+        <input type="text" placeholder="code" th:field="*{product.code}">
+        <input type="text" placeholder="quantity" th:field="*{product.quantity}">
+        <input type="submit" value="Dodaj">
+    </form>
+</div>
+
+
+</body>
+</html>

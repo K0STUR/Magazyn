@@ -1,0 +1,43 @@
+#edit-form {
+    width: 800px;
+    margin: 70px auto;
+}
+#edit-form input[type="text"] {
+    width: 80%;
+    margin: 10px auto;
+    display: block;
+    font-size: 26px;
+    padding: 5px;
+    text-align: center;
+}
+#edit-form input[type="submit"] {
+    width: 200px;
+    margin: 10px auto;
+    display: block;
+    font-size: 26px;
+    border: 2px solid black;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: color 0.5s, background-color 0.5s;
+}
+#edit-form input[type="submit"]:hover {
+    color: white;
+    background-color: black;
+}
+
+#error {
+    color: red;
+    font-size: 26px;
+    text-align: center;
+}
+.text {
+    font-size: 30px;
+    text-align: center;
+    margin: 15px auto;
+    display: block;
+    color: blue;
+
+
+}
